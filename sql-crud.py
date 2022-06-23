@@ -30,69 +30,69 @@ session = Session()
 base.metadata.create_all(db)
 
 # Creating records on our "Programmers" table
-ada_lovelace = Programmer(
-    first_name="Ada",
-    last_name="Lovelace",
-    gender="F",
-    nationality="British",
-    famous_for="First programmer"
-)
+# ada_lovelace = Programmer(
+#     first_name="Ada",
+#     last_name="Lovelace",
+#     gender="F",
+#     nationality="British",
+#     famous_for="First programmer"
+# )
 
-alan_turing = Programmer(
-    first_name="Alan",
-    last_name="Turing",
-    gender="M",
-    nationality="British",
-    famous_for="Modern computing"
-)
+# alan_turing = Programmer(
+#     first_name="Alan",
+#     last_name="Turing",
+#     gender="M",
+#     nationality="British",
+#     famous_for="Modern computing"
+# )
 
-grace_hopper = Programmer(
-    first_name="Grace",
-    last_name="Hopper",
-    gender="F",
-    nationality="American",
-    famous_for="COBOL langusge"
-)
+# grace_hopper = Programmer(
+#     first_name="Grace",
+#     last_name="Hopper",
+#     gender="F",
+#     nationality="American",
+#     famous_for="COBOL langusge"
+# )
 
-margaret_hamilton = Programmer(
-    first_name="Margaret",
-    last_name="Hamilton",
-    gender="F",
-    nationality="American",
-    famous_for="Apollo 11"
-)
+# margaret_hamilton = Programmer(
+#     first_name="Margaret",
+#     last_name="Hamilton",
+#     gender="F",
+#     nationality="American",
+#     famous_for="Apollo 11"
+# )
 
-bill_gates = Programmer(
-    first_name="Bill",
-    last_name="Gates",
-    gender="M",
-    nationality="American",
-    famous_for="Microsoft"
-)
+# bill_gates = Programmer(
+#     first_name="Bill",
+#     last_name="Gates",
+#     gender="M",
+#     nationality="American",
+#     famous_for="Microsoft"
+# )
 
-tim_burners_lee = Programmer(
-    first_name="Tim",
-    last_name="Berners-Lee",
-    gender="M",
-    nationality="British",
-    famous_for="World Wide Web"
-)
+# tim_burners_lee = Programmer(
+#     first_name="Tim",
+#     last_name="Berners-Lee",
+#     gender="M",
+#     nationality="British",
+#     famous_for="World Wide Web"
+# )
 
-steve_jobs = Programmer(
-    first_name="Steve",
-    last_name="Jobs",
-    gender="M",
-    nationality="American",
-    famous_for="Apple"
-)
+# steve_jobs = Programmer(
+#     first_name="Steve",
+#     last_name="Jobs",
+#     gender="M",
+#     nationality="American",
+#     famous_for="Apple"
+# )
 
-james_hodgkins = Programmer(
-    first_name="James",
-    last_name="Hodgkins",
-    gender="M",
-    nationality="British",
-    famous_for="Blind programmer"
-)
+# james_hodgkins = Programmer(
+#     first_name="James",
+#     last_name="Hodgkins",
+#     gender="M",
+#     nationality="British",
+#     famous_for="Blind programmer"
+# )
 
 # Add each instane of our programmers to our session
 # session.add(ada_lovelace)
@@ -122,11 +122,34 @@ james_hodgkins = Programmer(
 #         print("Gender is not defined")
     # session.commit()
 
+# Take input from user on which programmer to delete
+# fname = input("Enter your name: ")
+# lname = input("enter your last name: ")
+# programmer = session.query(Programmer).filter_by(first_name=fname, last_name=lname).first()
+# defensive programming
+# if programmer is not None:
+#     print("Programmer found: ", programmer.first_name + " " + programmer.last_name)
+#     confirmation = input("Are you sure you want to delete this record? (y/n) ")
+#     if confirmation.lower() == "y":
+#         session.delete(programmer)
+#         session.commit()
+#         print("Programmer has been eleted")
+#     else:
+#         print("Programmer not deleted")
+# else:
+#     print("No records found!")
+
+# Do not use unless relly needed
+# delete multiple records
+# programmers = session.query(Programmers)
+# for programmer in programmers:
+#     session.delete(programmer)
+#     session.commit()
 
 
 
 # Query the database to find all programmers
-programmers = session.query(Programmer)
+programmers = session.query(Programmer).order_by("id")
 for programmer in programmers:
     print(
         programmer.id,
