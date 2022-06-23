@@ -101,11 +101,29 @@ james_hodgkins = Programmer(
 # session.add(margaret_hamilton)
 # session.add(bill_gates)
 # session.add(tim_burners_lee)
-session.add(steve_jobs)
-session.add(james_hodgkins)
+# session.add(steve_jobs)
+# session.add(james_hodgkins)
+
+# Updating a single record
+# programmer = session.query(Programmer).filter_by(id=8).first()
+# programmer.famous_for = "World president"
 
 # commit our session to the database
-session.commit()
+# session.commit()
+
+# updating multiple records
+# people = session.query(Programmer)
+# for person in people:
+#     if person.gender == "F":
+#         person.gender = "Female"
+#     elif person.gender == "M":
+#         person.gender = "Male"
+#     else:
+#         print("Gender is not defined")
+    # session.commit()
+
+
+
 
 # Query the database to find all programmers
 programmers = session.query(Programmer)
